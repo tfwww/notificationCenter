@@ -3,8 +3,6 @@ var log = debug ? console.log.bind(console) : function() {}
 
 // class
 function NotificationCenter() {
-    // event list
-    this.events = []
     // event, target and handler pairs
     this.center = []
 }
@@ -12,8 +10,6 @@ function NotificationCenter() {
 NotificationCenter.prototype = {
     // add event listener
     addBroadcast: function(eventName, target, handler) {
-        var events = this.events
-        events.push(eventName)
         
         var center = this.center
         var obj = {
@@ -22,7 +18,6 @@ NotificationCenter.prototype = {
             handler: handler
         }
         center.push(obj)
-
     },
 
     // fire event listener
